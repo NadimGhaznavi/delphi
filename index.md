@@ -1,5 +1,5 @@
 ---
-title: Delphi Programming Language
+title: Delphi
 layout: default
 ---
 
