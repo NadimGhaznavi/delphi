@@ -9,5 +9,7 @@ Delphi is a general-purpose programming language and a software product that use
 
 # Links
 
-- [Wikipedia](https://en.wikipedia.org/wiki/Delphi_(software))
 - [Embarcadero Technologies](https://www.embarcadero.com/) - Vendor homepage
+- [Wikipedia](https://en.wikipedia.org/wiki/Delphi_(software))
+- [Broadcom](https://support.broadcom.com/) - VMWware partner for downloading VMware Workstation Pro
+  - [VMWare Workstation Pro Download Page](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true)
