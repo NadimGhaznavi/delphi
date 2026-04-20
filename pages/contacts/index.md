@@ -79,6 +79,7 @@ Add a few small enhancements:
 - Handle no selection on delete
 - Replace the `lstContacts` `TListBox` with `TListView`
 - Auto-refresh the contacts on delete
+- Auto-refresh the contacts on app startup
 
 ## Phase VI - Code Review
 
