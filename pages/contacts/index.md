@@ -6,7 +6,7 @@ layout: default
 # Table of Contents
 
 - [Introduction](#introduction)
-- [Development Roadmap](#roadmap)
+- [Development Roadmap](#development-roadmap)
   - [Phase I - UI Skeleton](#phase-i---ui-skeleton)
   - [Phase II - In Memory Logic](#phase-ii---in-memory-logic)
   - [Phase III - DB Integration](#phase-iii---db-integration)
