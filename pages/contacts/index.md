@@ -21,9 +21,15 @@ layout: default
 
 The goal is to create a simple contacts application that stores names and phone numbers. The backend will be a SQLite database. 
 
+## Success Criteria
+
+- Add, list, and delete contacts with data persisted in SQLite
+
 ---
 
 # Development Roadmap
+
+## Principles
 
 - Keep it simple
 - Prefer clarity over features
