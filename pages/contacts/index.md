@@ -43,7 +43,7 @@ Create a simple form that contains:
 - btnAdd
 - btnDelete
 - btnRefresh
-- lstContacts / TListView
+- lstContacts
 
 ## Phase II - In Memory Logic
 
@@ -70,10 +70,11 @@ Setup SQLite.
 
 ## Phase V - Extend the App
 
-Add a few small features:
+Add a few small enhancements:
 - Split *name* into *first name* and *last name*
 - Confirm delete feature
 - Handle no selection on delete
+- Replace the `lstContacts` `TListBox` with `TListView`
 
 ## Phase VI - Code Review
 
