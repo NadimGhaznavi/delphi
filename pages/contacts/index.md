@@ -7,6 +7,13 @@ layout: default
 
 - [Introduction]
 - [Development Roadmap](#roadmap)
+  - [Phase I - UI Skeleton](#phase-i---ui-skeleton)
+  - [Phase II - In Memory Logic](#phase-ii---in-memory-logic)
+  - [Phase III - DB Integration](#phase-iii---db-integration)
+  - [Phase IV - Replace the In-Memory List with the DB](#phase-iv---replace-the-in-memory-list-with-the-db)
+  - [Phase V - Extend the App](#phase-v---extend-the-app)
+  - [Phase VI - Code Review](#phase-vi---code-review)
+  - [Phase VII - Documentation](#phase-vii---documentation)
 
 ---
 

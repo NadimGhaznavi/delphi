@@ -9,7 +9,7 @@ Delphi is a general-purpose programming language and a software product that use
 
 # Getting up to Speed
 
-My style of learning is to setup a sandbox, lean into the documentation, and then build something that works. To that end, I've created a [Delphi Contacts Applicaiton](/)
+My style of learning is to setup a sandbox, lean into the documentation, and then build something that works. To that end, I've created a [Delphi Contacts Application](/pages/contacts/index.html).
 
 # Links
 
