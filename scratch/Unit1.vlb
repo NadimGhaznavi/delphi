@@ -1,0 +1,16 @@
+﻿[edtName]
+Coordinates=10,10,66,58
+
+[lblName]
+Coordinates=10,78,62,58
+
+[btnLaunch]
+Coordinates=172,10,74,58
+
+[rbgGender]
+Coordinates=86,10,76,58
+Visible=True
+
+[]
+Coordinates=197,78,91,36
+
