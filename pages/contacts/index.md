@@ -25,16 +25,19 @@ The goal is to create a simple contacts application that stores names and phone 
 
 # Development Roadmap
 
+- Keep it simple
+- Prefer clarity over features
+- Build in small, testable increments
+
 ## Phase I - UI Skeleton
 
 Create a simple form that contains:
-- edtFirstName
-- edtLastName
+- edtName
 - edtPhoneNumber
 - btnAdd
 - btnDelete
 - btnRefresh
-- lstContants / TListView
+- lstContacts / TListView
 
 ## Phase II - In Memory Logic
 
@@ -63,6 +66,7 @@ Setup SQLite.
 Add a couple of features:
 - Confirm delete feature
 - Handle no selection on delete
+- Split *name* into *first name* and *last name*
 
 ## Phase VI - Code Review
 
@@ -70,7 +74,7 @@ Add a couple of features:
   - Variable name
   - Event handlers
   - Maybe implement helper functions
-- Ensure code is commented, where appropriate
+- Ensure code is readable; add comments only where they add clarity
 
 ## Phase VII - Documentation
 
