@@ -6,6 +6,7 @@ layout: default
 # Table of Contents
 
 - [Introduction](#introduction)
+
 - [Development Roadmap](#development-roadmap)
   - [Phase I - UI Skeleton](#phase-i---ui-skeleton)
   - [Phase II - In Memory Logic](#phase-ii---in-memory-logic)
@@ -14,6 +15,7 @@ layout: default
   - [Phase V - Extend the App](#phase-v---extend-the-app)
   - [Phase VI - Code Review](#phase-vi---code-review)
   - [Phase VII - Documentation](#phase-vii---documentation)
+
 - [Links](#links)
 
 ---
@@ -76,6 +78,7 @@ Add a few small enhancements:
 - Confirm delete feature
 - Handle no selection on delete
 - Replace the `lstContacts` `TListBox` with `TListView`
+- Auto-refresh the contacts on delete
 
 ## Phase VI - Code Review
 
