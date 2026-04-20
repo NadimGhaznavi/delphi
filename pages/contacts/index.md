@@ -14,7 +14,7 @@ layout: default
   - [Phase V - Extend the App](#phase-v---extend-the-app)
   - [Phase VI - Code Review](#phase-vi---code-review)
   - [Phase VII - Documentation](#phase-vii---documentation)
-
+- [Links](#links)
 ---
 
 # Introduction
@@ -93,4 +93,8 @@ Create documentation for this application:
 - Design notes
 - Next steps, if I were to continue
 
+---
 
+# Links
+
+- [GitHub Repo](https://github.com/NadimGhaznavi/delphi) with [Contacts code](https://github.com/NadimGhaznavi/delphi/contacts)

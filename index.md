@@ -13,6 +13,8 @@ My style of learning is to setup a sandbox, lean into the documentation, and the
 
 # Links
 
+- [My Delphi GitHub Repo](https://github.com/NadimGhaznavi/delphi) - This site and Delphi code
+
 - [Embarcadero Technologies](https://www.embarcadero.com/) - Vendor homepage
   - [Learn Delphi DOT Org](http://learndelphi.org/) 
 
