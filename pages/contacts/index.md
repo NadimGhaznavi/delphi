@@ -47,7 +47,7 @@ Create a simple form that contains:
 
 ## Phase II - In Memory Logic
 
-Fake the backend.
+Fake the backend; implement an in-memory store to simulate persistence.
 - Store contacts in a list
 - Implement
   - Add > Push to the list
@@ -57,6 +57,7 @@ Fake the backend.
 ## Phase III - DB Integration
 
 Setup SQLite.
+- Use SQLite via FireDAC (no external server dependency)
 - Create the DB 
 - Create the DB table
 - Implement insert, select, delete
@@ -69,18 +70,19 @@ Setup SQLite.
 
 ## Phase V - Extend the App
 
-Add a couple of features:
+Add a few small features:
+- Split *name* into *first name* and *last name*
 - Confirm delete feature
 - Handle no selection on delete
-- Split *name* into *first name* and *last name*
 
 ## Phase VI - Code Review
 
 - Code review
   - Variable name
-  - Event handlers
-  - Maybe implement helper functions
-- Ensure code is readable; add comments only where they add clarity
+  - Improve names where appropriate
+  - Simplify event handlers
+  - Extract small helper functions where appropriate
+  - Ensure code is readable; add comments only where they add clarity
 
 ## Phase VII - Documentation
 
