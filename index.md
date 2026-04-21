@@ -20,11 +20,8 @@ My style of learning is to setup a sandbox, lean into the documentation, and the
 # Links
 
 - [My Delphi GitHub Repo](https://github.com/NadimGhaznavi/delphi) - This site and Delphi code
-
 - [Embarcadero Technologies](https://www.embarcadero.com/) - Vendor homepage
   - [Learn Delphi DOT Org](http://learndelphi.org/) 
-
 - [Broadcom](https://support.broadcom.com/) - VMWware partner for downloading VMware Workstation Pro
   - [VMWare Workstation Pro Download Page](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true)
-
 - [Wikipedia](https://en.wikipedia.org/wiki/Delphi_(software))
