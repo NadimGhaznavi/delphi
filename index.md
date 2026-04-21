@@ -21,8 +21,8 @@ To demonstrate that process, I built a simple [Delphi Contacts Application](/pag
 
 # Links
 
-- [My Delphi GitHub Repo](https://github.com/NadimGhaznavi/delphi) - This site and my Delphi code
-  - [My Delphi Contacts App](/pages/contacts/index.md)
+- [My Delphi GitHub Repo](https://github.com/NadimGhaznavi/delphi)
+  - [My Delphi Contacts Application](/pages/contacts/index.md)
 
 - [Embarcadero Technologies](https://www.embarcadero.com/) - Vendor homepage
   - [Learn Delphi](http://learndelphi.org/) 
