@@ -7,21 +7,23 @@ layout: default
 
 # Introduction
 
-Delphi is a general-purpose programming language and a software product that uses the Delphi dialect of the Object Pascal programming language and provides an integrated development environment (IDE) for rapid application development of desktop, mobile, web, and console software, currently developed and maintained by Embarcadero Technologies[[1](https://en.wikipedia.org/wiki/Delphi_(software))].
+Delphi is a rapid application development (RAD) environment built around Object Pascal, used for building desktop, mobile, web, and console applications. It is developed and maintained by Embarcadero Technologies.
 
 ---
 
 # Getting up to Speed
 
-My style of learning is to setup a sandbox, lean into the documentation, and then build something that works. To that end, I've created a [Delphi Contacts Application](/pages/contacts/index.html).
+My approach to learning a new technology is straightforward: set up a sandbox, work through the documentation, and build a small, complete application.
+
+To demonstrate that process, I built a simple [Delphi Contacts Application](/pages/contacts/index.html). The goal was not to build something complex, but to demonstrate rapid ramp-up, clean structure, and a complete UI-to-database workflow.
 
 ---
 
 # Links
 
-- [My Delphi GitHub Repo](https://github.com/NadimGhaznavi/delphi) - This site and Delphi code
+- [My Delphi GitHub Repo](https://github.com/NadimGhaznavi/delphi) - This site and my Delphi code
+  - [My Delphi Contacts App](/pages/contacts/index.md)
+
 - [Embarcadero Technologies](https://www.embarcadero.com/) - Vendor homepage
-  - [Learn Delphi DOT Org](http://learndelphi.org/) 
-- [Broadcom](https://support.broadcom.com/) - VMWware partner for downloading VMware Workstation Pro
-  - [VMWare Workstation Pro Download Page](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true)
-- [Wikipedia](https://en.wikipedia.org/wiki/Delphi_(software))
+  - [Learn Delphi](http://learndelphi.org/) 
+

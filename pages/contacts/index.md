@@ -3,9 +3,15 @@ title: Delphi Contacts
 layout: default
 ---
 
+![Contacts App](/images/contacts.png)
+
+---
+
 # Table of Contents
 
 - [Introduction](#introduction)
+
+- [Design Notes](#design-notes)
 
 - [Development Roadmap](#development-roadmap)
   - [Phase I - UI Skeleton](#phase-i---ui-skeleton)
@@ -22,11 +28,20 @@ layout: default
 
 # Introduction
 
-The goal is to create a simple contacts application that stores names and phone numbers. The backend will be a SQLite database. 
+The goal is to build a simple contacts application with a SQLite backend, demonstrating a complete UI-to-database workflow.
 
 ## Success Criteria
 
 - Add, list, and delete contacts with data persisted in SQLite
+- Clean, structured implementation using Delphi (FireDAC + VCL)
+
+---
+
+# Design Notes
+
+- The application was built incrementally, starting with an in-memory model and transitioning to a database-backed implementation.
+- UI structure was refactored (ListBox → ListView) to better align with the underlying data model.
+- Emphasis was placed on clarity and simplicity over feature completeness.
 
 ---
 
@@ -41,16 +56,16 @@ The goal is to create a simple contacts application that stores names and phone 
 ## Phase I - UI Skeleton
 
 Create a simple form that contains:
-- edtName
-- edtPhoneNumber
-- btnAdd
-- btnDelete
-- btnRefresh
-- lstContacts
+- Name
+- Phone Number
+- Add Button
+- Delete Button
+- Refresh Button
+- Contacts List Box
 
 ## Phase II - In Memory Logic
 
-Fake the backend; implement an in-memory store to simulate persistence.
+Simulate persistence using an in-memory store.
 - Store contacts in a list
 - Implement
   - Add > Push to the list
@@ -64,17 +79,18 @@ Setup SQLite.
 - Create the DB 
 - Create the DB table
 - Implement insert, select, delete
-- Remove the temporary list
-- Refresh reads from the DB
+- Replace the in-memory store with the database
+- Update UI to read directly from the DB
 
 ## Phase IV - Extend the App
 
 Add a few small enhancements:
 - Split *name* into *first name* and *last name*
 - Confirm delete feature
-- Replace the `lstContacts` `TListBox` with `TListView`
-- Auto-refresh the contacts on delete
+- Replace the `TListBox` with `TListView` to support structured data display
 - Auto-refresh the contacts on app startup
+- Auto-refresh the contacts on add
+- Auto-refresh the contacts on delete
 - Add database problem handling
 
 ## Phase V - Code Review
@@ -95,4 +111,5 @@ Create documentation for this application:
 
 # Links
 
-- [GitHub Repo](https://github.com/NadimGhaznavi/delphi) with [Contacts code](https://github.com/NadimGhaznavi/delphi/contacts)
+- [GitHub Repo](https://github.com/NadimGhaznavi/delphi)
+  - [Contacts code](https://github.com/NadimGhaznavi/delphi/contacts)
