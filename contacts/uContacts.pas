@@ -10,28 +10,27 @@ uses
   FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
   FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
-  FireDAC.Phys.SQLiteWrapper.Stat;
+  FireDAC.Phys.SQLiteWrapper.Stat, Vcl.ComCtrls;
 
 type
   TfrmContacts = class(TForm)
-    edtName: TEdit;
-    lblTitle: TLabel;
-    lblName: TLabel;
+    edtFirstName: TEdit;
+    edtLastName: TEdit;
     edtPhoneNumber: TEdit;
+    lblTitle: TLabel;
+    lblFirstName: TLabel;
+    lblLastlName: TLabel;
     lblPhoneNumber: TLabel;
+    lvContacts: TListView;
     btnAdd: TButton;
     btnDelete: TButton;
-    btnRefresh: TButton;
-    lstContacts: TListBox;
     fdConnContacts: TFDConnection;
     fdQryContacts: TFDQuery;
     procedure FormCreate(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
   private
-    FContacts: TStringList;
+    procedure LoadContacts;
   public
     { Public declarations }
   end;
@@ -45,8 +44,6 @@ implementation
 
 procedure TfrmContacts.FormCreate(Sender: TObject);
 begin
-  FContacts := TStringList.Create;
-
   fdConnContacts.Connected := True;
 
   fdQryContacts.Connection := fdConnContacts;
@@ -54,19 +51,37 @@ begin
   fdQryContacts.SQL.Text :=
     'CREATE TABLE IF NOT EXISTS contacts (' +
     'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
-    'name TEXT NOT NULL, ' +
+    'first_name TEXT NOT NULL, ' +
+    'last_name TEXT NOT NULL, ' +
     'phone TEXT NOT NULL)';
 
-  fdQryContacts.ExecSQL;
+  try
+    fdQryContacts.ExecSQL;
+  except
+    on E: Exception do
+      ShowMessage('Database error: ' + E.Message);
+  end;
+
+  lvContacts.Column[0].Width := 90;
+  lvContacts.Column[1].Width := 90;
+  lvContacts.Column[2].Width := 120;
+
+
+  LoadContacts;
+
 end;
 
 procedure TfrmContacts.btnAddClick(Sender: TObject);
-var
-  Contact: string;
 begin
-  if Trim(edtName.Text) = '' then
+  if Trim(edtFirstName.Text) = '' then
   begin
-    ShowMessage('Enter a name');
+    ShowMessage('Enter a first name');
+    Exit;
+  end;
+
+  if Trim(edtLastName.Text) = '' then
+  begin
+    ShowMessage('Enter a last name');
     Exit;
   end;
 
@@ -77,77 +92,108 @@ begin
   end;
 
   fdQryContacts.SQL.Text :=
-  'INSERT INTO contacts (name, phone) VALUES (:name, :phone)';
+    'INSERT INTO contacts (first_name, last_name, phone) ' +
+    'VALUES (:first_name, :last_name, :phone)';
 
-  fdQryContacts.ParamByName('name').AsString := Trim(edtName.Text);
+  fdQryContacts.ParamByName('first_name').AsString := Trim(edtFirstName.Text);
+  fdQryContacts.ParamByName('last_name').AsString := Trim(edtLastName.Text);
   fdQryContacts.ParamByName('phone').AsString := Trim(edtPhoneNumber.Text);
 
-  fdQryContacts.ExecSQL;
+  try
+    fdQryContacts.ExecSQL;
+  except
+    on E: Exception do
+      ShowMessage('Database error: ' + E.Message);
+  end;
 
-  edtName.Clear;
+  edtFirstName.Clear;
+  edtLastName.Clear;
   edtPhoneNumber.Clear;
-  edtName.SetFocus;
+  edtFirstName.SetFocus;
+
+  LoadContacts;
 end;
 
 procedure TfrmContacts.btnDeleteClick(Sender: TObject);
 var
-  Index: Integer;
-  ContactText: string;
-  SeparatorPos: Integer;
-  NameText: string;
+  Item: TListItem;
+  FirstNameText: string;
+  LastNameText: string;
   PhoneText: string;
 begin
-  Index := lstContacts.ItemIndex;
+  Item := lvContacts.Selected;
 
-  if Index = -1 then
+  if Item = nil then
   begin
     ShowMessage('Select a contact to delete');
     Exit;
   end;
 
-  ContactText := lstContacts.Items[Index];
-  SeparatorPos := Pos(' - ', ContactText);
-
-  if SeparatorPos = 0 then
-  begin
-    ShowMessage('Invalid contact format');
+  if MessageDlg('Delete selected contact?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrNo then
     Exit;
-  end;
 
-  NameText := Copy(ContactText, 1, SeparatorPos - 1);
-  PhoneText := Copy(ContactText, SeparatorPos + 3, Length(ContactText));
+
+  FirstNameText := Item.Caption;
+  LastNameText := Item.SubItems[0];
+  PhoneText := Item.SubItems[1];
 
   fdQryContacts.SQL.Text :=
-    'DELETE FROM contacts WHERE name = :name AND phone = :phone';
+    'DELETE FROM contacts ' +
+    'WHERE first_name = :first_name ' +
+    'AND last_name = :last_name ' +
+    'AND phone = :phone';
 
-  fdQryContacts.ParamByName('name').AsString := NameText;
+  fdQryContacts.ParamByName('first_name').AsString := FirstNameText;
+  fdQryContacts.ParamByName('last_name').AsString := LastNameText;
   fdQryContacts.ParamByName('phone').AsString := PhoneText;
 
-  fdQryContacts.ExecSQL;
-end;
-
-procedure TfrmContacts.btnRefreshClick(Sender: TObject);
-begin
-  fdQryContacts.SQL.Text := 'SELECT name, phone FROM contacts';
-  fdQryContacts.Open;
-
-  lstContacts.Items.Clear;
-
-  while not fdQryContacts.Eof do
-  begin
-    lstContacts.Items.Add(
-      fdQryContacts.FieldByName('name').AsString + ' - ' +
-      fdQryContacts.FieldByName('phone').AsString
-    );
-    fdQryContacts.Next;
+  try
+    fdQryContacts.ExecSQL;
+  except
+    on E: Exception do
+      ShowMessage('Database error: ' + E.Message);
   end;
 
-  fdQryContacts.Close;
+  LoadContacts;
 end;
 
-procedure TfrmContacts.FormDestroy(Sender: TObject);
+procedure TfrmContacts.LoadContacts;
+var
+  Item: TListItem;
 begin
-  FContacts.Free;
+  lvContacts.Items.BeginUpdate;
+  try
+    lvContacts.Items.Clear;
+
+    try
+      fdQryContacts.Close;
+      fdQryContacts.SQL.Text :=
+        'SELECT first_name, last_name, phone ' +
+        'FROM contacts ORDER BY last_name, first_name';
+      fdQryContacts.Open;
+
+      while not fdQryContacts.Eof do
+      begin
+        Item := lvContacts.Items.Add;
+        Item.Caption := fdQryContacts.FieldByName('first_name').AsString;
+        Item.SubItems.Add(fdQryContacts.FieldByName('last_name').AsString);
+        Item.SubItems.Add(fdQryContacts.FieldByName('phone').AsString);
+
+        fdQryContacts.Next;
+      end;
+
+      fdQryContacts.Close;
+
+    except
+      on E: Exception do
+        ShowMessage('Database error: ' + E.Message);
+    end;
+
+  finally
+    lvContacts.Items.EndUpdate;
+  end;
+
 end;
 
 end.

@@ -2,8 +2,8 @@ object frmContacts: TfrmContacts
   Left = 0
   Top = 0
   Caption = 'Delphi Contacts'
-  ClientHeight = 441
-  ClientWidth = 429
+  ClientHeight = 438
+  ClientWidth = 377
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,89 +11,103 @@ object frmContacts: TfrmContacts
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
   TextHeight = 15
   object lblTitle: TLabel
-    Left = 66
-    Top = 64
+    Left = 34
+    Top = 24
     Width = 84
     Height = 15
     Caption = 'Delphi Contacts'
   end
-  object lblName: TLabel
-    Left = 66
-    Top = 99
-    Width = 32
+  object lblLastlName: TLabel
+    Left = 34
+    Top = 107
+    Width = 56
     Height = 15
-    Caption = 'Name'
+    Caption = 'Last Name'
   end
   object lblPhoneNumber: TLabel
-    Left = 66
-    Top = 133
+    Left = 34
+    Top = 141
     Width = 81
     Height = 15
     Caption = 'Phone Number'
   end
-  object edtName: TEdit
-    Left = 160
-    Top = 96
-    Width = 143
-    Height = 23
-    TabOrder = 0
+  object lblFirstName: TLabel
+    Left = 34
+    Top = 67
+    Width = 57
+    Height = 15
+    Caption = 'First Name'
   end
-  object edtPhoneNumber: TEdit
-    Left = 160
-    Top = 125
+  object edtLastName: TEdit
+    Left = 128
+    Top = 99
     Width = 143
     Height = 23
     TabOrder = 1
   end
+  object edtPhoneNumber: TEdit
+    Left = 128
+    Top = 133
+    Width = 143
+    Height = 23
+    TabOrder = 2
+  end
   object btnAdd: TButton
-    Left = 66
-    Top = 376
+    Left = 64
+    Top = 392
     Width = 75
     Height = 25
     Caption = 'Add'
-    TabOrder = 2
+    TabOrder = 3
     OnClick = btnAddClick
   end
   object btnDelete: TButton
-    Left = 147
-    Top = 376
+    Left = 216
+    Top = 392
     Width = 75
     Height = 25
     Caption = 'Delete'
-    TabOrder = 3
+    TabOrder = 4
     OnClick = btnDeleteClick
   end
-  object btnRefresh: TButton
-    Left = 228
-    Top = 376
-    Width = 75
-    Height = 25
-    Caption = 'Refresh'
-    TabOrder = 4
-    OnClick = btnRefreshClick
+  object edtFirstName: TEdit
+    Left = 128
+    Top = 59
+    Width = 143
+    Height = 23
+    TabOrder = 0
   end
-  object lstContacts: TListBox
-    Left = 66
-    Top = 168
-    Width = 237
-    Height = 186
-    ItemHeight = 15
+  object lvContacts: TListView
+    Left = 32
+    Top = 176
+    Width = 295
+    Height = 193
+    Columns = <
+      item
+        Caption = 'First Name'
+      end
+      item
+        Caption = 'Last Name'
+      end
+      item
+        Caption = 'Phone Number'
+      end>
     TabOrder = 5
+    ViewStyle = vsReport
   end
   object fdConnContacts: TFDConnection
     Params.Strings = (
       'DriverID=SQLite'
       'Database=contacts.db')
     LoginPrompt = False
-    Left = 352
-    Top = 272
+    Left = 312
+    Top = 104
   end
   object fdQryContacts: TFDQuery
     Connection = fdConnContacts
-    Left = 352
-    Top = 200
+    Left = 312
+    Top = 48
   end
 end

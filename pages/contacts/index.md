@@ -64,33 +64,26 @@ Setup SQLite.
 - Create the DB 
 - Create the DB table
 - Implement insert, select, delete
-
-## Phase IV - Replace the In-Memory List with the DB
-
 - Remove the temporary list
-- Everything goes through the DB
 - Refresh reads from the DB
 
-## Phase V - Extend the App
+## Phase IV - Extend the App
 
 Add a few small enhancements:
 - Split *name* into *first name* and *last name*
 - Confirm delete feature
-- Handle no selection on delete
 - Replace the `lstContacts` `TListBox` with `TListView`
 - Auto-refresh the contacts on delete
 - Auto-refresh the contacts on app startup
+- Add database problem handling
 
-## Phase VI - Code Review
+## Phase V - Code Review
 
 - Code review
-  - Variable name
-  - Improve names where appropriate
-  - Simplify event handlers
-  - Extract small helper functions where appropriate
-  - Ensure code is readable; add comments only where they add clarity
+  - Variable names
+  - Ensure code is readable; add comments if necessary
 
-## Phase VII - Documentation
+## Phase VI - Documentation
 
 Create documentation for this application:
 - What it does
